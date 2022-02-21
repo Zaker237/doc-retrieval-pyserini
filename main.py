@@ -3,7 +3,7 @@ import os
 from pyserini.dsearch import SimpleDenseSearcher, TctColBertQueryEncoder
 from utils import load_tsv_file
 
-TEXT_DATA_FILE = "./2019qrels-docs.txt"
+TEXT_DATA_FILE = "./msmarco-test2019-queries.tsv"
 
 def main():
     test_data = load_tsv_file(TEXT_DATA_FILE)
