@@ -1,9 +1,9 @@
 
 def text_to_dict(text: str) ->tuple:
-    return tuple(text.split(" "))
+    return tuple(text.replace("\n", "").split(" "))
 
 def tsv_to_dict(text: str) ->tuple:
-    idx = text.index(" ")
+    idx = text.replace("\n", "").index(" ")
     return (text[:idx], text[idx+1:])
 
 def load_txt_file(path: str) ->list:
