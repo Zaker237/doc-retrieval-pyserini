@@ -1,9 +1,10 @@
 import os
 
 from pyserini.dsearch import SimpleDenseSearcher, TctColBertQueryEncoder
-from utils import load_tsv_file
+from utils import load_tsv_file, save_file
 
 TEXT_DATA_FILE = "./msmarco-test2019-queries.tsv"
+RESULT_FILE = "./msmarco-test2019-results.tsv"
 
 def main():
     test_data = load_tsv_file(TEXT_DATA_FILE)
@@ -22,6 +23,10 @@ def main():
             result_string = f"{data[0]} Q0 {hits[0].docid:7} {i+1} {hits[0].score:.5f} IndriQueryLikelihood"
             result_data.append(result_string)
             print(f'{i+1:2} {hits[i].docid:7} {hits[i].score:.5f}')
+
+    save_file(data, RESULT_FILE)
+
+    print("______End________")
         
 
 if __name__ == "__main__":
