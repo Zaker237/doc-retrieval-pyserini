@@ -14,11 +14,15 @@ def main():
         'msmarco-passage-tct_colbert-hnsw',
         encoder
     )
+    result_data = []
     for data in test_data[:2]:
         hits = searcher.search(data[1])
 
-        for i in range(0, 10):
+        for i in range(0, 100):
+            result_string = f"{data[0]} Q0 {hits[0].docid:7} {i+1} {hits[0].score:.5f} IndriQueryLikelihood"
+            result_data.append(result_string)
             print(f'{i+1:2} {hits[i].docid:7} {hits[i].score:.5f}')
+        
 
 if __name__ == "__main__":
     main()
