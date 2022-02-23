@@ -19,7 +19,7 @@ def main():
     for data in test_data[:2]:
         hits = searcher.search(data[1])
 
-        for i in range(0, 100):
+        for i in range(0, len(hits)):
             result_string = f"{data[0]} Q0 {hits[i].docid:7} {i+1} {hits[i].score:.5f} IndriQueryLikelihood"
             result_data.append(result_string)
             print(f'{i+1:2} {hits[i].docid:7} {hits[i].score:.5f}')
