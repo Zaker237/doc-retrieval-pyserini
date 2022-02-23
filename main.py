@@ -16,7 +16,7 @@ def main():
         encoder
     )
     result_data = []
-    for data in test_data[:2]:
+    for data in test_data:
         hits = searcher.search(data[1])
 
         for i in range(0, len(hits)):
@@ -24,7 +24,7 @@ def main():
             result_data.append(result_string)
             print(f'{i+1:2} {hits[i].docid:7} {hits[i].score:.5f}')
 
-    save_file(data, RESULT_FILE)
+    save_file(result_data, RESULT_FILE)
 
     print("______End________")
         
