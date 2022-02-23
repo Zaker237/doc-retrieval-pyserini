@@ -17,3 +17,7 @@ def load_tsv_file(path: str) ->list:
         data = fp.readlines()
 
     return list(map(tsv_to_dict, data))
+
+def save_file(data: list, path: str) ->None:
+    with open(path, "w", encoding="utf-8") as fp:
+        fp.write("\n".join(data))
